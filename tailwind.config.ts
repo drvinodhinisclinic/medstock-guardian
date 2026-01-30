@@ -57,6 +57,35 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Status colors
+        status: {
+          ok: "hsl(var(--status-ok))",
+          "ok-foreground": "hsl(var(--status-ok-foreground))",
+          low: "hsl(var(--status-low))",
+          "low-foreground": "hsl(var(--status-low-foreground))",
+          mismatch: "hsl(var(--status-mismatch))",
+          "mismatch-foreground": "hsl(var(--status-mismatch-foreground))",
+        },
+        // Audit type colors
+        audit: {
+          delivery: "hsl(var(--audit-delivery))",
+          sale: "hsl(var(--audit-sale))",
+          physical: "hsl(var(--audit-physical))",
+          adjustment: "hsl(var(--audit-adjustment))",
+        },
+        // Panel colors
+        panel: {
+          DEFAULT: "hsl(var(--panel-bg))",
+          border: "hsl(var(--panel-border))",
+        },
+        // Chart colors
+        chart: {
+          1: "hsl(var(--chart-1))",
+          2: "hsl(var(--chart-2))",
+          3: "hsl(var(--chart-3))",
+          4: "hsl(var(--chart-4))",
+          5: "hsl(var(--chart-5))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +94,32 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "fade-in": {
+          from: { opacity: "0", transform: "translateY(4px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "slide-in-right": {
+          from: { opacity: "0", transform: "translateX(8px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
+        },
+        "pulse-soft": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.7" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.2s ease-out",
+        "slide-in-right": "slide-in-right 0.3s ease-out",
+        "pulse-soft": "pulse-soft 2s ease-in-out infinite",
       },
     },
   },
