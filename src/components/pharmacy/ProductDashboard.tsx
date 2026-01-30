@@ -81,7 +81,7 @@ export function ProductDashboard({ product }: ProductDashboardProps) {
             />
           </TabsContent>
 
-          <TabsContent value="delivery" className="m-0">
+          <TabsContent value="delivery" className="m-0 data-[state=active]:overflow-visible">
             <DeliveryTab 
               product={product} 
               onSubmit={handleDeliverySubmit}
