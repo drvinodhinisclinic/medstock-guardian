@@ -1,0 +1,79 @@
+// Product types
+export interface Product {
+  ProductID: number;
+  ProductName: string;
+  Drug: string;
+  MRP: string;
+  LocationID: number;
+  LocationName: string;
+  Batch: string;
+  Exp: string;
+  QtyInStock: number;
+}
+
+// Stock information
+export interface StockInfo {
+  LocationID: number;
+  LocationName: string;
+  Batch: string;
+  Exp: string;
+  QtyInStock: number;
+}
+
+// Audit types
+export type AuditType = 'DELIVERY' | 'SALE' | 'PHYSICAL_COUNT' | 'ADJUSTMENT';
+
+export interface Audit {
+  StockAuditID: number;
+  ProductID: number;
+  ProductName: string;
+  LocationID: number;
+  LocationName: string;
+  Batch: string;
+  Exp: string;
+  AuditType: AuditType;
+  QtyChange: number;
+  StockBefore: number;
+  StockAfter: number;
+  ReferenceType: string | null;
+  ReferenceNo: string | null;
+  Remarks: string | null;
+  CreatedByUserID: number;
+  CreatedByUserName: string;
+  CreatedAt: string;
+}
+
+// Form data types
+export interface DeliveryFormData {
+  ProductID: number;
+  LocationID: number;
+  Batch: string;
+  Exp: string;
+  QuantityReceived: number;
+  InvoiceNo: string;
+}
+
+export interface PhysicalAuditFormData {
+  ProductID: number;
+  LocationID: number;
+  Batch: string;
+  Exp: string;
+  CountedQuantity: number;
+  Remarks: string;
+}
+
+// API response types
+export interface ApiResponse {
+  status: 'success' | 'error';
+  message: string;
+}
+
+// Stock status type
+export type StockStatus = 'OK' | 'LOW' | 'MISMATCH';
+
+// Monthly sales summary
+export interface MonthlySalesSummary {
+  month: string;
+  qtySold: number;
+  value: number;
+}
