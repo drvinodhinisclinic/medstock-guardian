@@ -69,7 +69,7 @@ export function AuditTimelineTab({ audits, isLoading }: AuditTimelineTabProps) {
   }
 
   return (
-    <ScrollArea className="h-[500px] animate-fade-in">
+    <div className="animate-fade-in">
       <div className="relative pl-6">
         {/* Timeline line */}
         <div className="absolute left-2 top-3 bottom-3 w-0.5 bg-border" />
@@ -167,6 +167,6 @@ export function AuditTimelineTab({ audits, isLoading }: AuditTimelineTabProps) {
           );
         })}
       </div>
-    </ScrollArea>
+    </div>
   );
 }

@@ -1,22 +1,21 @@
-/*
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-*/
-#root {
-  height: 100vh;
-  width: 100vw;
-
+/* Dashboard layout styles */
+html, body {
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+}
 
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-
-  text-align: left; /* IMPORTANT */
+  text-align: left;
+  overflow: hidden;
 }
 
 .logo {

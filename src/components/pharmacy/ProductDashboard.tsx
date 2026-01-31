@@ -50,10 +50,10 @@ export function ProductDashboard({ product }: ProductDashboardProps) {
   ];
 
   return (
-    <Card className="h-full flex flex-col bg-card border-border shadow-sm overflow-hidden">
-      <Tabs defaultValue="overview" className="flex-1 flex flex-col">
-        {/* Tab Header */}
-        <div className="px-4 pt-4 border-b border-border bg-secondary/30">
+    <Card className="h-full flex flex-col bg-card border-border shadow-sm overflow-hidden min-h-0">
+      <Tabs defaultValue="overview" className="flex-1 flex flex-col min-h-0">
+        {/* Tab Header - Fixed */}
+        <div className="flex-shrink-0 px-4 pt-4 pb-3 border-b border-border bg-secondary/30">
           <TabsList className="w-full h-auto p-1 bg-secondary/50 grid grid-cols-5 gap-1">
             {tabItems.map((tab) => {
               const Icon = tab.icon;
@@ -71,9 +71,9 @@ export function ProductDashboard({ product }: ProductDashboardProps) {
           </TabsList>
         </div>
 
-        {/* Tab Content */}
-        <div className="flex-1 overflow-auto p-4">
-          <TabsContent value="overview" className="m-0 h-full">
+        {/* Tab Content - Scrollable */}
+        <div className="flex-1 min-h-0 overflow-y-auto p-4">
+          <TabsContent value="overview" className="m-0 mt-0 h-auto">
             <OverviewTab 
               product={product} 
               stockInfo={stock} 
@@ -81,7 +81,7 @@ export function ProductDashboard({ product }: ProductDashboardProps) {
             />
           </TabsContent>
 
-          <TabsContent value="delivery" className="m-0 data-[state=active]:overflow-visible">
+          <TabsContent value="delivery" className="m-0 mt-0 h-auto">
             <DeliveryTab 
               product={product} 
               onSubmit={handleDeliverySubmit}
@@ -89,7 +89,7 @@ export function ProductDashboard({ product }: ProductDashboardProps) {
             />
           </TabsContent>
 
-          <TabsContent value="physical-count" className="m-0">
+          <TabsContent value="physical-count" className="m-0 mt-0 h-auto">
             <PhysicalAuditTab 
               product={product}
               onSubmit={handlePhysicalAuditSubmit}
@@ -97,14 +97,14 @@ export function ProductDashboard({ product }: ProductDashboardProps) {
             />
           </TabsContent>
 
-          <TabsContent value="timeline" className="m-0">
+          <TabsContent value="timeline" className="m-0 mt-0 h-auto">
             <AuditTimelineTab 
               audits={audits}
               isLoading={auditsLoading}
             />
           </TabsContent>
 
-          <TabsContent value="sales" className="m-0">
+          <TabsContent value="sales" className="m-0 mt-0 h-auto">
             <SalesSummaryTab 
               sales={sales}
               isLoading={salesLoading}
