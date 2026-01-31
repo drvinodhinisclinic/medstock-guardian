@@ -23,8 +23,10 @@ export function DeliveryTab({ product, onSubmit, isSubmitting }: DeliveryTabProp
     supplierId: '',
     invoiceNo: '',
     receivedDate: format(new Date(), 'yyyy-MM-dd'),
-    batch: product.Batch,
-    expiry: product.Exp.split('T')[0],
+    //batch: product.Batch,
+    //expiry: product.Exp.split('T')[0],
+    batch: product.Batch ?? '',
+    expiry: product.Exp ? product.Exp.split('T')[0] : '',
   });
 
   // Fetch suppliers
