@@ -10,10 +10,10 @@ const Index = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-card border-b border-border shadow-sm">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="h-screen w-screen flex flex-col bg-background overflow-hidden">
+      {/* Header - Fixed height */}
+      <header className="flex-shrink-0 bg-card border-b border-border shadow-sm z-50">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-primary/10">
@@ -34,11 +34,11 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-[calc(100vh-120px)]">
+      {/* Main Content - Flex grow with min-height: 0 for proper scrolling */}
+      <main className="flex-1 min-h-0 w-full px-4 sm:px-6 lg:px-8 py-4">
+        <div className="h-full grid grid-cols-1 lg:grid-cols-12 gap-4">
           {/* Left Panel - Search */}
-          <div className="lg:col-span-4 xl:col-span-3 h-full min-h-[400px] lg:min-h-0">
+          <div className="lg:col-span-4 xl:col-span-3 min-h-0 flex flex-col">
             <ProductSearch
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
@@ -50,7 +50,7 @@ const Index = () => {
           </div>
 
           {/* Right Panel - Dashboard */}
-          <div className="lg:col-span-8 xl:col-span-9 h-full min-h-[500px] lg:min-h-0">
+          <div className="lg:col-span-8 xl:col-span-9 min-h-0 flex flex-col">
             <ProductDashboard product={selectedProduct} />
           </div>
         </div>

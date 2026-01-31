@@ -37,9 +37,9 @@ export function ProductSearch({
   };
 
   return (
-    <div className="h-full flex flex-col bg-card rounded-xl border border-border shadow-sm">
-      {/* Header */}
-      <div className="p-4 border-b border-border">
+    <div className="h-full flex flex-col bg-card rounded-xl border border-border shadow-sm min-h-0">
+      {/* Header - Fixed */}
+      <div className="flex-shrink-0 p-4 border-b border-border">
         <div className="flex items-center gap-2 mb-3">
           <Package className="h-5 w-5 text-primary" />
           <h2 className="font-semibold text-foreground">Product Search</h2>
@@ -56,8 +56,8 @@ export function ProductSearch({
         </div>
       </div>
 
-      {/* Product List */}
-      <ScrollArea className="flex-1">
+      {/* Product List - Scrollable */}
+      <div className="flex-1 min-h-0 overflow-y-auto">
         <div className="p-2">
           {isLoading && (
             <div className="flex items-center justify-center py-8">
@@ -124,7 +124,7 @@ export function ProductSearch({
             );
           })}
         </div>
-      </ScrollArea>
+      </div>
     </div>
   );
 }
