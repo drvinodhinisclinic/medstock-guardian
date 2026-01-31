@@ -80,6 +80,12 @@ export interface ApiResponse {
   message: string;
 }
 
+export interface CreateProductResponse {
+  success: boolean;
+  message: string;
+  data?: Product;
+}
+
 // Stock status type
 export type StockStatus = 'OK' | 'LOW' | 'MISMATCH';
 
@@ -88,4 +94,16 @@ export interface MonthlySalesSummary {
   month: string;
   qtySold: number;
   value: number;
+}
+
+// New product form data
+export interface NewProductFormData {
+  HSNCode?: string;
+  Manufacturer?: string;
+  ProductName: string;
+  PackOf?: string;
+  MRP: string;
+  UnitPrice?: string;
+  Size?: string;
+  Drug?: string;
 }

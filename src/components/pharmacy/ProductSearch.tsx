@@ -1,9 +1,9 @@
 import { Search, Package, AlertCircle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
 import type { Product } from '@/types/pharmacy';
 import { format } from 'date-fns';
+import { AddProductDialog } from './AddProductDialog';
 
 interface ProductSearchProps {
   searchQuery: string;
@@ -36,13 +36,20 @@ export function ProductSearch({
     }
   };
 
+  const handleProductCreated = (product: Product) => {
+    onSelectProduct(product);
+  };
+
   return (
     <div className="h-full flex flex-col bg-card rounded-xl border border-border shadow-sm min-h-0">
       {/* Header - Fixed */}
       <div className="flex-shrink-0 p-4 border-b border-border">
-        <div className="flex items-center gap-2 mb-3">
-          <Package className="h-5 w-5 text-primary" />
-          <h2 className="font-semibold text-foreground">Product Search</h2>
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <div className="flex items-center gap-2">
+            <Package className="h-5 w-5 text-primary" />
+            <h2 className="font-semibold text-foreground">Product Search</h2>
+          </div>
+          <AddProductDialog onProductCreated={handleProductCreated} />
         </div>
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />

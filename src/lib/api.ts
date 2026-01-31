@@ -1,4 +1,4 @@
-import type { Product, Audit, StockInfo, DeliveryFormData, PhysicalAuditFormData, ApiResponse, MonthlySalesSummary, SupplierApiResponse, Supplier } from '@/types/pharmacy';
+import type { Product, Audit, StockInfo, DeliveryFormData, PhysicalAuditFormData, ApiResponse, MonthlySalesSummary, SupplierApiResponse, Supplier, NewProductFormData, CreateProductResponse } from '@/types/pharmacy';
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
 
@@ -39,6 +39,14 @@ export async function getProductAudits(productId: number): Promise<Audit[]> {
 export async function getSuppliers(): Promise<Supplier[]> {
   const response = await apiCall<SupplierApiResponse>('/api/productmgmt/supplier');
   return response.data;
+}
+
+// Create new product
+export async function createProduct(data: NewProductFormData): Promise<CreateProductResponse> {
+  return apiCall<CreateProductResponse>('/api/productmgmt/newproduct', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
 }
 
 // Submit delivery
