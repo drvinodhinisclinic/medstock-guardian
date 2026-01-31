@@ -11,6 +11,17 @@ export interface Product {
   QtyInStock: number;
 }
 
+// Supplier types
+export interface Supplier {
+  SupplierID: number;
+  SupplierName: string;
+}
+
+export interface SupplierApiResponse {
+  success: boolean;
+  data: Supplier[];
+}
+
 // Stock information
 export interface StockInfo {
   LocationID: number;
@@ -51,6 +62,7 @@ export interface DeliveryFormData {
   Exp: string;
   QuantityReceived: number;
   InvoiceNo: string;
+  SupplierID: number;
 }
 
 export interface PhysicalAuditFormData {
