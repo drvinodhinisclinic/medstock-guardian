@@ -107,3 +107,25 @@ export interface NewProductFormData {
   Size?: string;
   Drug?: string;
 }
+
+// Location types
+export interface Location {
+  LocationID: number;
+  LocationName: string;
+}
+
+export interface LocationApiResponse {
+  success: boolean;
+  data: Location[];
+}
+
+// Stock movement types
+export interface StockMovementFormData {
+  ProductID: number;
+  FromLocationID: number;
+  ToLocationID: number;
+  Batch: string;
+  Exp: string;
+  Quantity: number;
+  Remarks?: string;
+}
