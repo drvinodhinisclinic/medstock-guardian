@@ -1,4 +1,4 @@
-import { Package2, LayoutDashboard, Truck, ClipboardCheck, History, TrendingUp } from 'lucide-react';
+import { Package2, LayoutDashboard, Truck, ClipboardCheck, History, TrendingUp, ArrowRightLeft } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
 import { OverviewTab } from './OverviewTab';
@@ -6,6 +6,7 @@ import { DeliveryTab } from './DeliveryTab';
 import { PhysicalAuditTab } from './PhysicalAuditTab';
 import { AuditTimelineTab } from './AuditTimelineTab';
 import { SalesSummaryTab } from './SalesSummaryTab';
+import { StockMovementTab } from './StockMovementTab';
 import type { Product } from '@/types/pharmacy';
 import { useProductData } from '@/hooks/useProductData';
 
@@ -44,6 +45,7 @@ export function ProductDashboard({ product }: ProductDashboardProps) {
   const tabItems = [
     { value: 'overview', label: 'Overview', icon: LayoutDashboard },
     { value: 'delivery', label: 'Add Delivery', icon: Truck },
+    { value: 'move-stock', label: 'Move Stock', icon: ArrowRightLeft },
     { value: 'physical-count', label: 'Physical Count', icon: ClipboardCheck },
     { value: 'timeline', label: 'Audit Timeline', icon: History },
     { value: 'sales', label: 'Sales Summary', icon: TrendingUp },
@@ -52,9 +54,8 @@ export function ProductDashboard({ product }: ProductDashboardProps) {
   return (
     <Card className="h-full flex flex-col bg-card border-border shadow-sm overflow-hidden min-h-0">
       <Tabs defaultValue="overview" className="flex-1 flex flex-col min-h-0">
-        {/* Tab Header - Fixed */}
         <div className="flex-shrink-0 px-4 pt-4 pb-3 border-b border-border bg-secondary/30">
-          <TabsList className="w-full h-auto p-1 bg-secondary/50 grid grid-cols-5 gap-1">
+          <TabsList className="w-full h-auto p-1 bg-secondary/50 grid grid-cols-6 gap-1">
             {tabItems.map((tab) => {
               const Icon = tab.icon;
               return (
@@ -87,6 +88,10 @@ export function ProductDashboard({ product }: ProductDashboardProps) {
               onSubmit={handleDeliverySubmit}
               isSubmitting={isDeliverySubmitting}
             />
+          </TabsContent>
+
+          <TabsContent value="move-stock" className="m-0 mt-0 h-auto">
+            <StockMovementTab product={product} />
           </TabsContent>
 
           <TabsContent value="physical-count" className="m-0 mt-0 h-auto">
